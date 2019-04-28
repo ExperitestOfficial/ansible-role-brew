@@ -1,0 +1,13 @@
+
+- hosts: localhost
+
+  roles:
+    - name: ansible-role-brew
+
+  post_tasks:
+    
+    - command: brew --version
+      register: brew_version
+
+    - debug:
+        var: brew_version

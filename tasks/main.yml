@@ -1,0 +1,13 @@
+---
+
+- name: install
+  include_tasks: "tasks/darwin-install.yml"
+  when: 
+    - state|default('present') == 'present'
+    - ansible_os_family == "Darwin"
+
+- name: uninstall
+  include_tasks: "tasks/darwin-uninstall.yml"
+  when: 
+    - state|default('present') == 'absent'
+    - ansible_os_family == "Darwin"
